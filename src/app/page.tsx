@@ -208,7 +208,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-4xl ml-auto">
+          <div className="max-w-4xl ml-auto -mt-24 md:mt-0">
             <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 md:mb-8 text-white text-right" style={{textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5)'}}>
               Since I was a kid, all I wanted was to tell stories. Now, let me tell you mine.
             </h1>
