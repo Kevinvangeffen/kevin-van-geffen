@@ -24,16 +24,18 @@ export async function POST(request: NextRequest) {
 
     // Create transporter
     const transporter = nodemailer.createTransporter({
-      service: 'gmail',
+      host: process.env.EMAIL_HOST,
+      port: parseInt(process.env.EMAIL_PORT || '587'),
+      secure: process.env.EMAIL_SECURE === 'true',
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
 
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.EMAIL_FROM,
       to: 'kevinvangeffen86@gmail.com',
       subject: `New Contact Form Message from ${name}`,
       html: `
