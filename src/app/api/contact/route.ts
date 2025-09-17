@@ -1,8 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// Simple in-memory rate limiting (for production, use Redis or database)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const windowMs = 15 * 60 * 1000; // 15 minutes
+  const maxRequests = 5; // Max 5 requests per 15 minutes
+
+  const current = rateLimitMap.get(ip);
+  
+  if (!current || now > current.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+  
+  if (current.count >= maxRequests) {
+    return false;
+  }
+  
+  current.count++;
+  return true;
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Too many requests. Please try again later.' 
+      }, { status: 429 });
+    }
+
     const body = await request.json();
     const { name, email, message, honeypot } = body;
 
@@ -16,10 +48,35 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, message: 'All fields are required' }, { status: 400 });
     }
 
+    // Input sanitization and length limits
+    const sanitizedName = name.trim().substring(0, 100);
+    const sanitizedEmail = email.trim().toLowerCase().substring(0, 254);
+    const sanitizedMessage = message.trim().substring(0, 2000);
+
+    if (sanitizedName.length < 2) {
+      return NextResponse.json({ success: false, message: 'Name must be at least 2 characters' }, { status: 400 });
+    }
+
+    if (sanitizedMessage.length < 10) {
+      return NextResponse.json({ success: false, message: 'Message must be at least 10 characters' }, { status: 400 });
+    }
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(sanitizedEmail)) {
       return NextResponse.json({ success: false, message: 'Invalid email address' }, { status: 400 });
+    }
+
+    // Check for suspicious content (basic spam detection)
+    const suspiciousPatterns = [
+      /http[s]?:\/\/[^\s]+/gi, // URLs
+      /[A-Z]{5,}/g, // Excessive caps
+      /(.)\1{4,}/g, // Repeated characters
+    ];
+
+    const messageText = sanitizedMessage.toLowerCase();
+    if (suspiciousPatterns.some(pattern => pattern.test(messageText))) {
+      return NextResponse.json({ success: false, message: 'Message contains suspicious content' }, { status: 400 });
     }
 
     // Create transporter
@@ -37,7 +94,7 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.EMAIL_FROM,
       to: 'kevinvangeffen86@gmail.com',
-      subject: `New Contact Form Message from ${name}`,
+      subject: `New Contact Form Message from ${sanitizedName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #cb9f41; border-bottom: 2px solid #cb9f41; padding-bottom: 10px;">
@@ -45,11 +102,11 @@ export async function POST(request: NextRequest) {
           </h2>
           
           <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Name:</strong> ${sanitizedName}</p>
+            <p><strong>Email:</strong> ${sanitizedEmail}</p>
             <p><strong>Message:</strong></p>
             <div style="background: white; padding: 15px; border-radius: 4px; border-left: 4px solid #cb9f41;">
-              ${message.replace(/\n/g, '<br>')}
+              ${sanitizedMessage.replace(/\n/g, '<br>')}
             </div>
           </div>
           
@@ -58,7 +115,7 @@ export async function POST(request: NextRequest) {
           </p>
         </div>
       `,
-      replyTo: email,
+      replyTo: sanitizedEmail,
     };
 
     // Send email
