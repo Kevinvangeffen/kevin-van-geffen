@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lightboxVideo, setLightboxVideo] = useState<string | null>(null);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -37,6 +40,40 @@ export default function Home() {
 
   const closeLightbox = () => {
     setLightboxVideo(null);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus({ type: 'success', message: result.message });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus({ type: 'error', message: result.message });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Scroll animation logic
@@ -172,20 +209,20 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-4xl ml-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-8 text-white text-right" style={{textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5)'}}>
+            <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 md:mb-8 text-white text-right" style={{textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5)'}}>
               Since I was a kid, all I wanted was to tell stories. Now, let me tell you mine.
             </h1>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-end">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-end">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="cinematic-btn"
+                className="cinematic-btn text-sm md:text-lg px-6 py-3 md:px-8 md:py-4"
               >
                 Contact Me
               </button>
               <button
                 onClick={() => scrollToSection('chapters')}
-                className="cinematic-btn-outline"
+                className="cinematic-btn-outline text-sm md:text-lg px-6 py-3 md:px-8 md:py-4"
               >
                 My Story & Portfolio
               </button>
@@ -432,29 +469,63 @@ export default function Home() {
 
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field for spam protection */}
+              <input
+                type="text"
+                name="honeypot"
+                style={{ display: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Your Name"
+                  required
                   className="w-full px-6 py-4 bg-transparent border-2 border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-gold-start focus:outline-none transition-colors"
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="Your Email"
+                  required
                   className="w-full px-6 py-4 bg-transparent border-2 border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-gold-start focus:outline-none transition-colors"
                 />
               </div>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 placeholder="Tell me your story..."
                 rows={6}
+                required
                 className="w-full px-6 py-4 bg-transparent border-2 border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#cb9f41] focus:outline-none transition-colors resize-none"
               />
+              
+              {/* Status Message */}
+              {submitStatus.type && (
+                <div className={`p-4 rounded-lg text-center ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-900/50 text-green-300 border border-green-700' 
+                    : 'bg-red-900/50 text-red-300 border border-red-700'
+                }`}>
+                  {submitStatus.message}
+                </div>
+              )}
+              
               <button
                 type="submit"
-                className="cinematic-btn w-full"
+                disabled={isSubmitting}
+                className="cinematic-btn w-full disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
