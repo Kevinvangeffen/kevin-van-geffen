@@ -15,7 +15,7 @@ export default function Home() {
     setIsMenuOpen(false);
   };
 
-  const openLightbox = (videoTitle: string, videoId?: string) => {
+  const openLightbox = (videoTitle: string) => {
     setLightboxVideo(videoTitle);
   };
 
@@ -217,7 +217,7 @@ export default function Home() {
               <div className="fade-in-left">
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter I: The Spark</h2>
                 <div className="text-lg md:text-xl leading-relaxed space-y-6">
-                  <p>It began with words. As a kid, I filled pages with poems and short stories. Later, those became song lyrics, and when I realized I wasn't meant to sing them, I learned how to rap. Rap needed beats, so I taught myself music production. That same mindset guided me ever since: if others can do it, why can't I?</p>
+                  <p>It began with words. As a kid, I filled pages with poems and short stories. Later, those became song lyrics, and when I realized I wasn&apos;t meant to sing them, I learned how to rap. Rap needed beats, so I taught myself music production. That same mindset guided me ever since: if others can do it, why can&apos;t I?</p>
                   <p>To share my music, I designed my own logos, flyers, and websites. One skill led to the next. Video slipped in naturally—at first just for my own songs, but soon I was creating music videos that people around me wanted too. Requests kept coming, until what started as passion projects turned into professional work. This was the foundation of my first video company in the Netherlands: Green Artworks.</p>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter II: The Stage at Talpa</h2>
               <div className="text-lg md:text-xl leading-relaxed space-y-6 max-w-4xl mx-auto">
                 <p>After years of freelance work, I stepped onto a bigger stage: <a href="https://www.talpanetwork.com/" target="_blank" rel="noopener noreferrer" className="text-gold-start hover:text-gold-end transition-colors duration-300 underline">Talpa Network</a>, one of the Netherlands' most influential media companies. My role was both director and editor, working with top-tier businesses and some of the country's biggest influencers. Here, deadlines were tight, expectations higher than ever, and every project demanded precision.</p>
-                <p>My job wasn't just to cut video. I was shaping stories that brands trusted to represent them in front of large audiences. From brainstorming creative concepts to directing shoots to polishing edits, I wore every hat. And it showed me some of my own blind spots that really helped me to grow better.</p>
+                <p>My job wasn&apos;t just to cut video. I was shaping stories that brands trusted to represent them in front of large audiences. From brainstorming creative concepts to directing shoots to polishing edits, I wore every hat. And it showed me some of my own blind spots that really helped me to grow better.</p>
                 <p>Then came COVID. Our department was laid off. Instead of standing still, I took the chance to chase something new: the world itself.</p>
               </div>
             </div>
@@ -332,7 +332,7 @@ export default function Home() {
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter III: The Journey</h2>
                 <div className="text-lg md:text-xl leading-relaxed space-y-6">
                   <p>I packed my camera, my drone, and my laptop, and set off. Greece, Mexico, Colombia, Peru. I captured not just places, but people, cultures, and moments that could vanish in a blink. In Colombia, I spent 6 months traveling alone through coffee regions, documenting farmers, landscapes, and traditions. Out of it came a 37-minute documentary on Colombian coffee, produced, filmed, and edited entirely by me. No crew. Just me and my drive to tell their story.</p>
-                  <p>That documentary reached over 1.1 million viewers on YouTube, and it's still growing fast. Proof that a story, told with authenticity, can travel across the world. In between, I made travel films for my channel, experimenting with style and voice, slowly shaping my identity as a documentary storyteller.</p>
+                  <p>That documentary reached over 1.1 million viewers on YouTube, and it&apos;s still growing fast. Proof that a story, told with authenticity, can travel across the world. In between, I made travel films for my channel, experimenting with style and voice, slowly shaping my identity as a documentary storyteller.</p>
                 </div>
         </div>
               <div className="flex justify-center fade-in-right">
@@ -395,8 +395,8 @@ export default function Home() {
               <div className="fade-in-left">
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter V: Home and Beyond</h2>
                 <div className="text-lg md:text-xl leading-relaxed space-y-6">
-                  <p>Eventually, Peru became home. I met Sandra, we got married and couldn't be happier. But my work as a storyteller didn't slow down. Together, we filmed a new documentary, "The Sacred Life of Peru," in just 12 days, unplanned, spontaneous, and deeply personal. It reminded me that the best stories often emerge when you least expect them.</p>
-                  <p>Today, I continue freelancing as an editor and designer from Lima. Every project, whether a documentary, a branded video, or a website, is another chance to do what I've always wanted: to tell stories that people don't just watch, but truly feel. From a kid scribbling poems to a man filming documentaries across continents, that mission has never changed.</p>
+                  <p>Eventually, Peru became home. I met Sandra, we got married and couldn&apos;t be happier. But my work as a storyteller didn&apos;t slow down. Together, we filmed a new documentary, &ldquo;The Sacred Life of Peru,&rdquo; in just 12 days, unplanned, spontaneous, and deeply personal. It reminded me that the best stories often emerge when you least expect them.</p>
+                  <p>Today, I continue freelancing as an editor and designer from Lima. Every project, whether a documentary, a branded video, or a website, is another chance to do what I&apos;ve always wanted: to tell stories that people don&apos;t just watch, but truly feel. From a kid scribbling poems to a man filming documentaries across continents, that mission has never changed.</p>
                 </div>
               </div>
               <div className="flex justify-center fade-in-right">
@@ -427,7 +427,7 @@ export default function Home() {
       <section id="contact" className="py-20 bg-gradient-to-b from-black to-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-12 gold-text">
-            Every story deserves to be told.<br />Let's tell yours.
+            Every story deserves to be told.<br />Let&apos;s tell yours.
           </h2>
 
           {/* Contact Form */}
