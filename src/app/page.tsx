@@ -69,7 +69,7 @@ export default function Home() {
       } else {
         setSubmitStatus({ type: 'error', message: result.message });
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
     } finally {
       setIsSubmitting(false);
