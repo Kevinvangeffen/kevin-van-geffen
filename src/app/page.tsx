@@ -209,7 +209,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-4xl ml-auto -mt-24 md:mt-0">
-            <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 md:mb-8 text-white text-right" style={{textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5)'}}>
+            <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 md:mb-8 text-white text-center md:text-right -mt-20 md:mt-0" style={{textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5)'}}>
               Since I was a kid, all I wanted was to tell stories. Now, let me tell you mine.
             </h1>
             
@@ -235,7 +235,7 @@ export default function Home() {
       </section>
 
       {/* Introduction */}
-      <section className="py-16 bg-gradient-to-b from-background to-black">
+      <section className="py-8 md:py-16 bg-gradient-to-b from-background to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             This portfolio resume is just a quick overview of some highlights of my work in different stages. 
@@ -249,13 +249,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Chapter 1: The Beginning */}
-          <div className="mb-32">
+          <div className="mb-16 md:mb-32">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="fade-in-left">
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter I: The Spark</h2>
                 <div className="text-lg md:text-xl leading-relaxed space-y-6">
-                  <p>It began with words. As a kid, I filled pages with poems and short stories. Later, those became song lyrics, and when I realized I wasn&apos;t meant to sing them, I learned how to rap. Rap needed beats, so I taught myself music production. That same mindset guided me ever since: if others can do it, why can&apos;t I?</p>
-                  <p>To share my music, I designed my own logos, flyers, and websites. One skill led to the next. Video slipped in naturally—at first just for my own songs, but soon I was creating music videos that people around me wanted too. Requests kept coming, until what started as passion projects turned into professional work. This was the foundation of my first video company in the Netherlands: Green Artworks.</p>
+                  <p>My story began in the Netherlands, where I grew up as a quiet boy with a passion for telling stories. At that time, it wasn&apos;t something I was aware of, but everything I did was related to it. When I was around the age of 8 I started writing poems and texts. When I got older, these turned into song texts. I soon realized that I wasn&apos;t the greatest singer, so I dedicated myself to learning how to rap. But, to rap, you need beats, so I taught myself how to produce.</p>
+                  <p>To get my music out in the world, I needed a logo, a website and music videos. Since I always liked drawing as a kid and loved experimenting with the camera my parents had for shooting our holiday videos, I knew I could probably learn this as well. This has always been my mentality; &ldquo;If others can do it, then so can I&rdquo;.</p>
+                  <p>Because of my music, I got in contact with more and more people with the same passions and together we grew in all of our skills. I noticed that I really liked telling stories through video, and soon I got asked to shoot videos for others. The more experienced I got, the more requests came in. This was the first spark that laid the foundation of my first video company in the Netherlands: Green Artworks.</p>
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-6 fade-in-right">
@@ -298,13 +299,13 @@ export default function Home() {
           </div>
 
           {/* Chapter 2: Talpa */}
-          <div className="mb-32">
+          <div className="mb-16 md:mb-32">
             <div className="text-center mb-12 fade-in">
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter II: The Stage at Talpa</h2>
               <div className="text-lg md:text-xl leading-relaxed space-y-6 max-w-4xl mx-auto">
                 <p>After years of freelance work, I stepped onto a bigger stage: <a href="https://www.talpanetwork.com/" target="_blank" rel="noopener noreferrer" className="text-gold-start hover:text-gold-end transition-colors duration-300 underline">Talpa Network</a>, one of the Netherlands&apos; most influential media companies. My role was both director and editor, working with top-tier businesses and some of the country&apos;s biggest influencers. Here, deadlines were tight, expectations higher than ever, and every project demanded precision.</p>
-                <p>My job wasn&apos;t just to cut video. I was shaping stories that brands trusted to represent them in front of large audiences. From brainstorming creative concepts to directing shoots to polishing edits, I wore every hat. And it showed me some of my own blind spots that really helped me to grow better.</p>
-                <p>Then came COVID. Our department was laid off. Instead of standing still, I took the chance to chase something new: the world itself.</p>
+                <p>My job wasn&apos;t just to cut videos. I was shaping stories and concepts for brands and influencers that my team and I brought to life. From brainstorming and writing decks, to directing shoots and polishing edits, I wore every hat. Working in a team like that helped me not only to grow as a video creator, but also as a person as it really made me aware of my own blind spots.</p>
+                <p>But then, in 2020, COVID happened. Our department was laid off. This was the moment I knew I had to pursue a dream that I had since I was little: Travel the world!</p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto fade-in">
@@ -363,13 +364,14 @@ export default function Home() {
           </div>
 
           {/* Chapter 3: The Journey */}
-          <div className="mb-32">
+          <div className="mb-16 md:mb-32">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="fade-in-left">
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter III: The Journey</h2>
                 <div className="text-lg md:text-xl leading-relaxed space-y-6">
-                  <p>I packed my camera, my drone, and my laptop, and set off. Greece, Mexico, Colombia, Peru. I captured not just places, but people, cultures, and moments that could vanish in a blink. In Colombia, I spent 6 months traveling alone through coffee regions, documenting farmers, landscapes, and traditions. Out of it came a 37-minute documentary on Colombian coffee, produced, filmed, and edited entirely by me. No crew. Just me and my drive to tell their story.</p>
-                  <p>That documentary reached over 1.1 million viewers on YouTube, and it&apos;s still growing fast. Proof that a story, told with authenticity, can travel across the world. In between, I made travel films for my channel, experimenting with style and voice, slowly shaping my identity as a documentary storyteller.</p>
+                  <p>As soon as I finished my last day and said goodbye to all my friends and family, I packed my camera, my drone, and my laptop, ready for my journey. I started in Greece, the country that always felt as my second home. After a month I went to Mexico, Colombia, Peru. Along the way, I didn&apos;t just capture places; I focused on the stories of the people, cultures, and moments that unfortunately pass by too quickly.</p>
+                  <p>In Colombia, I spent 6 months traveling alone through often very remote coffee regions that most people have never heard of. I documented farmers, landscapes, and traditions far outside the typical tourist areas. These 6 months turned into a 37-minute documentary, produced, filmed, and edited entirely by me. No crew. Just me and my drive to tell their story.</p>
+                  <p>In the span of a year, that documentary reached well over a million viewers on YouTube, and it&apos;s still growing fast. Proof that a story, told with authenticity, can travel across the world. In between, I made travel films for my channel, experimenting with style and voice, slowly shaping my identity as a documentary storyteller.</p>
                 </div>
         </div>
               <div className="flex justify-center fade-in-right">
@@ -395,13 +397,13 @@ export default function Home() {
           </div>
 
           {/* Chapter 4: WP Expert */}
-          <div className="mb-32">
+          <div className="mb-16 md:mb-32">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="lg:order-2 fade-in-right">
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter IV: The Remote Agency Life</h2>
                 <div className="text-lg md:text-xl leading-relaxed space-y-6">
-                  <p>Traveling also opened another path. I joined <a href="https://wpexpert.ca/" target="_blank" rel="noopener noreferrer" className="text-gold-start hover:text-gold-end transition-colors duration-300 underline">WP Expert</a>, a Canadian web agency, working fully remote. Over several years, I delivered more than 80 website projects, designing, building, and often guiding clients directly through the process. My focus on UX, SEO, and communication shaped each project into more than just a website, it became a story told through design.</p>
-                  <p>I also created promotional videos for the company, blending my design skills with video editing to elevate how the brand presented itself. Here I proved to myself that even from across the world, I could collaborate closely with a team, adapt to different time zones, and deliver high-quality work for clients who expected nothing less.</p>
+                  <p>Traveling also opened another path. Besides shooting stories along the way, I joined <a href="https://wpexpert.ca/" target="_blank" rel="noopener noreferrer" className="text-gold-start hover:text-gold-end transition-colors duration-300 underline">WP Expert</a>, a Canadian web agency, working fully remote. This made sense as it aligned well with my Bachelor study Communication and Multimedia Design. Over several years, I delivered more than 80 website projects, designing and building, while often guiding clients directly through the process. My focus on UX, SEO, and communication shaped each project into a product that clients were truly happy with. A different skill, but at the end of the day, still storytelling.</p>
+                  <p>During my work there, I also created various animated promotional videos for the company, blending my design skills with video editing to elevate how the brand presented itself. At WP Expert, I proved to myself that even from across the world, I could collaborate closely with a team, adapt to different time zones, and deliver high-quality work for clients who expected nothing less.</p>
                 </div>
               </div>
               <div className="lg:order-1 flex justify-center fade-in-left">
@@ -427,13 +429,13 @@ export default function Home() {
           </div>
 
           {/* Chapter 5: Sacred Life */}
-          <div className="mb-32">
+          <div className="mb-16 md:mb-32">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="fade-in-left">
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 gold-text">Chapter V: Home and Beyond</h2>
                 <div className="text-lg md:text-xl leading-relaxed space-y-6">
-                  <p>Eventually, Peru became home. I met Sandra, we got married and couldn&apos;t be happier. But my work as a storyteller didn&apos;t slow down. Together, we filmed a new documentary, &ldquo;The Sacred Life of Peru,&rdquo; in just 12 days, unplanned, spontaneous, and deeply personal. It reminded me that the best stories often emerge when you least expect them.</p>
-                  <p>Today, I continue freelancing as an editor and designer from Lima. Every project, whether a documentary, a branded video, or a website, is another chance to do what I&apos;ve always wanted: to tell stories that people don&apos;t just watch, but truly feel. From a kid scribbling poems to a man filming documentaries across continents, that mission has never changed.</p>
+                  <p>Eventually, after roughly two years, Peru became home. Here, I met Sandra, the love of my life. We got married in 2023 and couldn&apos;t be happier. But my work as a storyteller didn&apos;t slow down. Together, we filmed a new documentary in August 2025, &ldquo;The Sacred Life of Peru,&rdquo; in just 12 days, unplanned, spontaneous, and deeply personal. It reminded me that the best stories often emerge when you least expect them.</p>
+                  <p>Today, I continue to freelance as an editor and designer from Lima. Every project, whether a documentary, a branded video, or a website, is another chance to do what I&apos;ve always wanted: to tell stories that people don&apos;t just watch, but truly feel. From a kid scribbling poems to a man filming documentaries across continents, that mission has never changed.</p>
                 </div>
               </div>
               <div className="flex justify-center fade-in-right">
@@ -463,7 +465,7 @@ export default function Home() {
       {/* Closing Scene */}
       <section id="contact" className="py-20 bg-gradient-to-b from-black to-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-12 gold-text">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-12 gold-text text-left md:text-center">
             Every story deserves to be told.<br />Let&apos;s tell yours.
           </h2>
 
