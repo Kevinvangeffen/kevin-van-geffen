@@ -13,6 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://kevin-van-geffen.vercel.app' : 'http://localhost:3000'),
   title: "Kevin van Geffen - Storyteller & Creative Director",
   description: "Since I was a kid, all I wanted was to tell stories. Now, let me tell you mine.",
   keywords: ["Kevin van Geffen", "video editor", "documentary filmmaker", "creative director", "storyteller", "video production", "Colombia's Black Gold", "Sacred Life of Peru"],
@@ -53,14 +54,10 @@ export const metadata: Metadata = {
     images: ['/Images/kevin-van-geffen-backdrop.webp'],
   },
   icons: {
-    icon: [
-      { url: '/Images/kevin-favicon.webp', type: 'image/webp' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
+    icon: '/Images/kevin-favicon.webp',
     shortcut: '/Images/kevin-favicon.webp',
     apple: '/Images/kevin-favicon.webp',
   },
-  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
@@ -70,11 +67,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/Images/kevin-favicon.webp" type="image/webp" />
-        <link rel="shortcut icon" href="/Images/kevin-favicon.webp" type="image/webp" />
-        <link rel="apple-touch-icon" href="/Images/kevin-favicon.webp" />
-      </head>
       <body
         className={`${inter.variable} ${playfair.variable} antialiased`}
       >
