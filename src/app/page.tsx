@@ -588,7 +588,7 @@ export default function Home() {
                   <div className="border-l-2 border-gold-start pl-6">
                     <h4 className="text-lg font-semibold text-gold-start mb-2">Freelance Creative / Video Editor & Director</h4>
                     <p className="text-gray-300 font-medium mb-1">Ongoing, Peru & Remote</p>
-                    <p className="text-gray-400 text-sm">Produced documentaries, branded videos, digital content for international clients, and content for my YouTube channel. Created the viral documentary Colombia's Black Gold (1.1M+ views) and the September 2025 release The Sacred Life of Peru.</p>
+                    <p className="text-gray-400 text-sm">Produced documentaries, branded videos, digital content for international clients, and content for my YouTube channel. Created the viral documentary Colombia&apos;s Black Gold (1.1M+ views) and the September 2025 release The Sacred Life of Peru.</p>
                   </div>
                   <div className="border-l-2 border-gold-start pl-6">
                     <h4 className="text-lg font-semibold text-gold-start mb-2">Talpa Network</h4>
