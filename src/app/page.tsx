@@ -32,7 +32,7 @@ export default function Home() {
       "Colombian Coffee Documentary": "4tYr_3qZiHk",
       "Travel Documentaries": "LgO-ZnEdqyU",
       "Website Portfolio": "-IXF8SmlDKc",
-      "Sacred Life in Peru": "4tYr_3qZiHk",
+      "Sacred Life in Peru": "LgO-ZnEdqyU",
       "Music Video Productions": "LgO-ZnEdqyU"
     };
     return videoMap[videoTitle] || "";
